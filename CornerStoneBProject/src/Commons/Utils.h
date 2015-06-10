@@ -44,6 +44,15 @@ public:
 
 		PngUtil::mapObjectToPng(path.c_str(),mapObject);
 	}
+
+	//************
+	//	Path assignment
+	//************
+	static void insertPathToMap(MapObject& map, vector<GridPosition> path){
+		for (GridPosition pos : path){
+			map.setCellAtPosition(pos, Path);
+		}
+	}
 };
 
 #endif /* UTILS_H_ */

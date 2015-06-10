@@ -41,10 +41,18 @@ public:
 	//************
 	//	Accessors
 	//************
+	vector<GridPosition> getChosenPath(){
+		return _roughlocationsVector;
+	}
+
 
 	//************
 	//	Navigation methods
 	//************
+	/**
+	 * Orders the class to find the path from source to destination and
+	 * keep it.
+	 */
 	void findPath(Location source, Location destination);
 
 	//************
@@ -64,14 +72,6 @@ public:
 		Utils::printMap(_mapWithRoughPath);
 	}
 private :
-	//************
-	//	Path assignment
-	//************
-	void insertPathToMap(MapObject& map, vector<GridPosition> path){
-		for (GridPosition pos : path){
-			map.setCellAtPosition(pos, Path);
-		}
-	}
 
 	//***********
 	//	Path finding helpers
@@ -81,14 +81,16 @@ private :
 
 		// Starts from the end and go to the begining
 		GridPosition current = to;
-		path.push_back(current);
+
+		path.insert(path.begin(),current);
 		cout << LOG_DEBUG << " Pushed X=" << current.getX() << ", Y=" << current.getY() << endl;
 		while(current != from){
 			current = _parentsMap[current];
 
-			path.push_back(current);
+			path.insert(path.begin(),current);
 			cout << LOG_DEBUG << " Pushed X=" << current.getX() << ", Y=" << current.getY() << endl;
 		}
+
 		return path;
 	}
 };

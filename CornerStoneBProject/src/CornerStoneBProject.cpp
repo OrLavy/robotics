@@ -10,6 +10,7 @@
 #include "Map.h"
 #include "PngUtils/PngUtil.h"
 #include "PathFinder.h"
+#include "WayPointsManager.h"
 using namespace std;
 
 int main() {
@@ -50,6 +51,9 @@ int main() {
 	pathFinder.findPath(usedLocation.getLocation(),usedDestination);
 
 	pathFinder.saveMapWithRoughPath("roughPath.png");
+
+	WayPointsManager wpManager(pathFinder.getChosenPath(),mapa.getBlownMap());
+	wpManager.savePointsOnMap("folder/waypoints.png");
 
 	cout << "Or Lavy part  end" << endl;
 	return 0;

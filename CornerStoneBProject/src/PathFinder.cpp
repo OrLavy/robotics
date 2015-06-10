@@ -43,7 +43,7 @@ void PathFinder::findPath(Location source, Location destination){
 
 	// Copy the original map and assign the path
 	this->_mapWithRoughPath = MapObject(_map);
-	insertPathToMap(_mapWithRoughPath,_roughlocationsVector);
+	Utils::insertPathToMap(_mapWithRoughPath,_roughlocationsVector);
 	_mapWithRoughPath.setCellAtPosition(sourceCell,Source);
 	_mapWithRoughPath.setCellAtPosition(destinationCell,Target);
 }

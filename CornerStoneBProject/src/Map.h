@@ -43,7 +43,7 @@ public:
 		return navigationMap;
 	}
 
-	MapObject getBlownMap(){
+	MapObject& getBlownMap(){
 		return blownMap;
 	}
 
