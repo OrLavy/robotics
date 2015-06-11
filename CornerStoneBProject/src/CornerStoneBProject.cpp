@@ -14,6 +14,7 @@
 using namespace std;
 
 int main() {
+	/*
 	// Configurations initializing
 	ConfigurationsManager::setRobotSize(30);
 	//ConfigurationsManager::setRobotSize(2); // Maze tests
@@ -29,8 +30,10 @@ int main() {
 	Location destinationCircularMaze(553,572); // Circular maze test
 	Location usedDestination = destination;
 	//Location destination(372,311);
-	ConfigurationsManager::setDestination(usedDestination);
+	ConfigurationsManager::setDestination(usedDestination); */
 
+	string confFilePath = "/mnt/hgfs/SharedFolder/simulation/orConf.txt";
+	ConfigurationsManager::initializeFromFile(confFilePath);
 	ConfigurationsManager::printParameters();
 
 	string hospitalMap = "/usr/robotics/PcBotWorld/hospital_section.png";
@@ -48,7 +51,9 @@ int main() {
 	mapa.saveNavigationMapAsPng("NavMap.png");
 
 	PathFinder pathFinder(mapa.getBlownMap());
-	pathFinder.findPath(usedLocation.getLocation(),usedDestination);
+	ComplexLocation initialComplexLocation = ConfigurationsManager::getRobotInitialLocation();
+	pathFinder.findPath(initialComplexLocation.getLocation(),
+						ConfigurationsManager::getDestination());
 
 	pathFinder.saveMapWithRoughPath("roughPath.png");
 

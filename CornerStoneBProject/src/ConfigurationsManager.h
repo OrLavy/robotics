@@ -32,7 +32,7 @@ public:
 	//******************
 	//	Initialization
 	//******************
-	void initializeFromFile(string filePath);
+	static void initializeFromFile(string filePath);
 
 	//******************
 	//	Accessors
@@ -45,7 +45,7 @@ public:
 		_mapPath = mapPath;
 	}
 
-	static const ComplexLocation& getRobotInitialLocation(){
+	static const ComplexLocation getRobotInitialLocation(){
 		return _robotInitialLocation;
 	}
 
@@ -53,7 +53,7 @@ public:
 		_robotInitialLocation = robotInitialLocation;
 	}
 
-	static const Location& getDestination() {
+	static const Location getDestination() {
 		return _destination;
 	}
 
@@ -99,6 +99,65 @@ public:
 		cout << " *** Pix2Cm ratio : " << getPixel2Centimeter() << endl;
 		cout << " *** Localization res : " << getGridCell2Centimeter() << endl;
 		cout << "----------------------------------" << endl;
+	}
+
+private:
+	//*****************
+	//	Parameters reading
+	//*****************
+	/**
+	 * Parse the map file location
+	 */
+	static void parseMapLocation(string mapLocation){
+		setMapPath(mapLocation);
+	}
+
+	/**
+	 * Parse the robots initial location
+	 */
+	static void parseInitialLocation(string strX, string strY, string strYaw){
+		unsigned x = atoi(strX.c_str());
+		unsigned y = atoi(strY.c_str());
+		unsigned yaw = atoi(strYaw.c_str());
+		ComplexLocation cLoc = ComplexLocation(x,y,yaw);
+		setRobotInitialLocation(cLoc);
+	}
+
+	/**
+	 * Parse the target's location
+	 */
+	static void parseTargetLocation(string strX, string strY){
+		unsigned x = atoi(strX.c_str());
+		unsigned y = atoi(strY.c_str());
+
+		Location loc = Location(x,y);
+		setDestination(loc);
+	}
+
+	/**
+	 * Parse the size of the robot
+	 */
+	static void parseRobotSize(string strXSize, string strYSize){
+		unsigned x = atoi(strXSize.c_str());
+		unsigned y = atoi(strYSize.c_str());
+
+		setRobotSize(max(x,y));
+	}
+
+	/**
+	 * Parse the map's resolution
+	 */
+	static void parseMapResolution(string strCell2Cm){
+		float cell2Cm = atof(strCell2Cm.c_str());
+		setPixel2Centimeter(cell2Cm);
+	}
+
+	/**
+	 * Parse the map's resolution
+	 */
+	static void parseNavigationResolution(string strNavRes){
+		float navRes = atof(strNavRes.c_str());
+		setGridCell2Centimeter(navRes);
 	}
 };
 
