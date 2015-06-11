@@ -121,18 +121,31 @@ public:
 	 * Returns the cell that contains the given actual location
 	 */
 	GridCell getCellAtRealLocation(float x,  float y){
-		GridPosition position = PositionFromLocation(x,y);
+		GridPosition position = positionFromLocation(x,y);
 		return getCellAtPosition(position.getX(),position.getY());
 	}
 
-	GridPosition PositionFromLocation(float x, float y){
+	/**
+	 * Gets the position from the given location coordinates
+	 */
+	GridPosition positionFromLocation(float x, float y){
 		unsigned xPos = positionFromActualLocation(x);
 		unsigned yPos = positionFromActualLocation(y);
 		return GridPosition(xPos,yPos);
 	}
 
-	GridPosition PositionFromLocation(Location location){
-		return PositionFromLocation(location.getX(),location.getY());
+	/**
+	 * Gets the position from the given location object
+	 */
+	GridPosition positionFromLocation(Location location){
+		return positionFromLocation(location.getX(),location.getY());
+	}
+
+	/**
+	 * Retrun an aproximate location of the given grid position
+	 */
+	Location locationFromPosition(GridPosition postion){
+
 	}
 
 private :
@@ -157,6 +170,15 @@ private :
 		}
 
 		return cell;
+	}
+
+	/**
+	 * Returns an actual world location(float) that is about in the middle
+	 * of the given grid location
+	 */
+	float locationFromActualPosition(unsigned position){
+		float aproximateLocation = (position * _cell2Cm) + (((float)_cell2Cm) / 2);
+		return aproximateLocation;
 	}
 
 	//************
