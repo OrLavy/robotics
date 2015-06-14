@@ -141,7 +141,7 @@ private:
 		unsigned x = atoi(strXSize.c_str());
 		unsigned y = atoi(strYSize.c_str());
 
-		setRobotSize(max(x,y));
+		setRobotSize(std::max(x,y));
 	}
 
 	/**

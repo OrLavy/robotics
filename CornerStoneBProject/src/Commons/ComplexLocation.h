@@ -51,6 +51,7 @@ public:
 	void setYaw(float yaw) {
 		_yaw = yaw;
 	}
+
 };
 
 #endif /* COMPLEXLOCATION_H_ */

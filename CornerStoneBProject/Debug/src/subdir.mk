@@ -7,7 +7,9 @@ CPP_SRCS += \
 ../src/ConfigurationsManager.cpp \
 ../src/CornerStoneBProject.cpp \
 ../src/Map.cpp \
-../src/PathFinder.cpp 
+../src/PathFinder.cpp \
+../src/Robot.cpp \
+../src/WayPointsManager.cpp 
 
 C_SRCS += \
 ../src/Globals.c 
@@ -17,7 +19,9 @@ OBJS += \
 ./src/CornerStoneBProject.o \
 ./src/Globals.o \
 ./src/Map.o \
-./src/PathFinder.o 
+./src/PathFinder.o \
+./src/Robot.o \
+./src/WayPointsManager.o 
 
 C_DEPS += \
 ./src/Globals.d 
@@ -26,14 +30,16 @@ CPP_DEPS += \
 ./src/ConfigurationsManager.d \
 ./src/CornerStoneBProject.d \
 ./src/Map.d \
-./src/PathFinder.d 
+./src/PathFinder.d \
+./src/Robot.d \
+./src/WayPointsManager.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross G++ Compiler'
-	g++ -D__cplusplus=201103L -O0 -g3 -Wall -c -fmessage-length=0  -std=c++11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -D__cplusplus=201103L -I/usr/local/include/player-2.0 -I"/home/colman/git/robotics/CornerStoneBProject/src" -O0 -g3 -Wall -c -fmessage-length=0  -std=c++11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

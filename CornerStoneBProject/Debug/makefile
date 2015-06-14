@@ -8,8 +8,11 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include src/WayPointsManager/subdir.mk
 -include src/PngUtils/subdir.mk
 -include src/Commons/subdir.mk
+-include src/Behaviours/Plans/subdir.mk
+-include src/Behaviours/subdir.mk
 -include src/AStar/subdir.mk
 -include src/subdir.mk
 -include subdir.mk
@@ -47,7 +50,7 @@ all: CornerStoneBProject
 CornerStoneBProject: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross G++ Linker'
-	g++  -o "CornerStoneBProject" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L/usr/local/lib -o "CornerStoneBProject" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

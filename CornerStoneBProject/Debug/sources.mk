@@ -23,8 +23,11 @@ C_UPPER_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-src/PngUtils \
 src \
+src/WayPointsManager \
+src/PngUtils \
 src/Commons \
+src/Behaviours/Plans \
+src/Behaviours \
 src/AStar \
 

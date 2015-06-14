@@ -8,6 +8,8 @@
 #ifndef LOCATION_H_
 #define LOCATION_H_
 
+#include <math.h>
+
 /**
  * Represents an actual location in 2d space (x and y are in cm's from a decided zero point)
  */
@@ -46,6 +48,32 @@ public:
 
 	void setY(float y) {
 		_y = y;
+	}
+
+	//*******************
+	//     ExtraFuncs
+	//*******************
+	inline float Magnitude(const Location& v)
+	{
+	    return (sqrtf(v.getX() * v.getX() + v.getY() * v.getY()));
+	}
+
+	Location operator -(const Location& v) const
+	{
+	    return (Location(_x - v._x, _y - v._y));
+	}
+
+	Location& operator /=(float t)
+	{
+	    float f = 1.0F / t;
+	    _x *= f;
+	    _y *= f;
+	    return (*this);
+	}
+
+	Location& Normalize(void)
+	{
+	    return (*this /= sqrtf(_x * _x + _y * _y));
 	}
 };
 

@@ -11,6 +11,11 @@
 #include "PngUtils/PngUtil.h"
 #include "PathFinder.h"
 #include "WayPointsManager.h"
+
+#include "Robot.h"
+#include "Behaviours/Manager.h"
+#include "Behaviours/Plans/PlanDrive.h"
+
 using namespace std;
 
 int main() {
@@ -32,16 +37,16 @@ int main() {
 	//Location destination(372,311);
 	ConfigurationsManager::setDestination(usedDestination); */
 
-	string confFilePath = "/mnt/hgfs/SharedFolder/simulation/orConf.txt";
+	string confFilePath ="/home/colman/git/robotics/CornerStoneBProject/parameters.txt" ;//"/mnt/hgfs/SharedFolder/simulation/orConf.txt";
 	ConfigurationsManager::initializeFromFile(confFilePath);
 	ConfigurationsManager::printParameters();
 
 	string hospitalMap = "/usr/robotics/PcBotWorld/hospital_section.png";
-	string hospitalMapFixed = "/home/colman/Programming/Robotics/CornerStoneBProject/FixedHospital.png";
-	string labMap = "/mnt/hgfs/SharedFolder/simulation/roboticLabMap.png";
+	string hospitalMapFixed = "/usr/robotics/PcBotWorld/hospital_section.png";//"/home/colman/Programming/Robotics/CornerStoneBProject/FixedHospital.png";
+	string labMap = "/home/colman/git/robotics/CornerStoneBProject/roboticLabMap.png";//"/mnt/hgfs/SharedFolder/simulation/roboticLabMap.png";
 
-	string smallMazeMap = "/mnt/hgfs/SharedFolder/Maps/smallMap.png";
-	string circularMazeMap = "/mnt/hgfs/SharedFolder/Maps/roundMaze.png";
+	//string smallMazeMap = "/mnt/hgfs/SharedFolder/Maps/smallMap.png";
+	//string circularMazeMap = "/mnt/hgfs/SharedFolder/Maps/roundMaze.png";
 	string usedMap = labMap;
 	cout << "Or Lavy part begin" << endl;
 	Map mapa;
@@ -58,8 +63,18 @@ int main() {
 	pathFinder.saveMapWithRoughPath("roughPath.png");
 
 	WayPointsManager wpManager(pathFinder.getChosenPath(),mapa.getBlownMap());
-	wpManager.savePointsOnMap("folder/waypoints.png");
+	wpManager.savePointsOnMap("waypoints.png");
 
 	cout << "Or Lavy part  end" << endl;
+
+	cout << "Anton part begin" << endl;
+	Robot robot("localhost",6665);
+
+	PlanDrive plnOA(&robot, &wpManager);
+	Manager manager(&robot, &plnOA);
+	manager.run();
+	cout << "Anton part ends" << endl;
+
+
 	return 0;
 }
