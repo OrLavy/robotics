@@ -144,8 +144,11 @@ public:
 	/**
 	 * Retrun an aproximate location of the given grid position
 	 */
-	Location locationFromPosition(GridPosition postion){
+	Location locationFromPosition(GridPosition position){
+		float xLoc = positionFromActualLocation(position.getX());
+		float yLoc = positionFromActualLocation(position.getY());
 
+		return Location(xLoc, yLoc);
 	}
 
 private :
