@@ -7,7 +7,8 @@ CPP_SRCS += \
 ../src/ConfigurationsManager.cpp \
 ../src/CornerStoneBProject.cpp \
 ../src/Map.cpp \
-../src/PathFinder.cpp 
+../src/PathFinder.cpp \
+../src/WayPointsManager.cpp 
 
 C_SRCS += \
 ../src/Globals.c 
@@ -17,7 +18,8 @@ OBJS += \
 ./src/CornerStoneBProject.o \
 ./src/Globals.o \
 ./src/Map.o \
-./src/PathFinder.o 
+./src/PathFinder.o \
+./src/WayPointsManager.o 
 
 C_DEPS += \
 ./src/Globals.d 
@@ -26,7 +28,8 @@ CPP_DEPS += \
 ./src/ConfigurationsManager.d \
 ./src/CornerStoneBProject.d \
 ./src/Map.d \
-./src/PathFinder.d 
+./src/PathFinder.d \
+./src/WayPointsManager.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

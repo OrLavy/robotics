@@ -12,7 +12,9 @@ src/CornerStoneBProject.d: ../src/CornerStoneBProject.cpp ../src/Map.h \
  ../src/AStar/../Commons/GridPosition.h ../src/AStar/MapGraphObject.h \
  ../src/AStar/../Commons/MapObject.h ../src/AStar/MatrixHolder.h \
  ../src/AStar/HelperTemplates.h ../src/AStar/MapGraphObject.h \
- ../src/AStar/MatrixHolder.h
+ ../src/AStar/MatrixHolder.h ../src/WayPointsManager.h \
+ ../src/WayPointsManager/WayPoint.h \
+ ../src/WayPointsManager/../Commons/Location.h ../src/Commons/Location.h
 
 ../src/Map.h:
 
@@ -61,3 +63,11 @@ src/CornerStoneBProject.d: ../src/CornerStoneBProject.cpp ../src/Map.h \
 ../src/AStar/MapGraphObject.h:
 
 ../src/AStar/MatrixHolder.h:
+
+../src/WayPointsManager.h:
+
+../src/WayPointsManager/WayPoint.h:
+
+../src/WayPointsManager/../Commons/Location.h:
+
+../src/Commons/Location.h:

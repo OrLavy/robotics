@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include src/WayPointsManager/subdir.mk
 -include src/PngUtils/subdir.mk
 -include src/Commons/subdir.mk
 -include src/AStar/subdir.mk
