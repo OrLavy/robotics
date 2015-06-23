@@ -10,6 +10,7 @@ RM := rm -rf
 -include sources.mk
 -include src/WayPointsManager/subdir.mk
 -include src/PngUtils/subdir.mk
+-include src/Particles/subdir.mk
 -include src/Commons/subdir.mk
 -include src/Behaviours/Plans/subdir.mk
 -include src/Behaviours/subdir.mk

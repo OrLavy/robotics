@@ -28,9 +28,16 @@ src/CornerStoneBProject.d: ../src/CornerStoneBProject.cpp ../src/Map.h \
  /usr/local/include/player-2.0/libplayerc++/playerclient.h \
  /usr/local/include/player-2.0/libplayerc++/playererror.h \
  /usr/local/include/player-2.0/libplayerc++/clientproxy.h \
- ../src/Commons/ComplexLocation.h ../src/Behaviours/Manager.h \
- ../src/Behaviours/Plans/PlanDrive.h ../src/Behaviours/Plans/Plan.h \
- ../src/Behaviours/Plans/../Behaviour.h \
+ ../src/Commons/ComplexLocation.h ../src/Particles/LocalizationManager.h \
+ /home/colman/git/robotics/CornerStoneBProject/src/Commons/ComplexPosition.h \
+ /home/colman/git/robotics/CornerStoneBProject/src/Commons/GridPosition.h \
+ /home/colman/git/robotics/CornerStoneBProject/src/Commons/MapObject.h \
+ ../src/Particles/Particle.h \
+ /home/colman/git/robotics/CornerStoneBProject/src/Globals.h \
+ /home/colman/git/robotics/CornerStoneBProject/src/Commons/Logger.h \
+ /home/colman/git/robotics/CornerStoneBProject/src/Commons/../Globals.h \
+ ../src/Behaviours/Manager.h ../src/Behaviours/Plans/PlanDrive.h \
+ ../src/Behaviours/Plans/Plan.h ../src/Behaviours/Plans/../Behaviour.h \
  ../src/Behaviours/Plans/../../Robot.h \
  /home/colman/git/robotics/CornerStoneBProject/src/Robot.h \
  ../src/Behaviours/Plans/../ActionRotate.h \
@@ -126,6 +133,22 @@ src/CornerStoneBProject.d: ../src/CornerStoneBProject.cpp ../src/Map.h \
 /usr/local/include/player-2.0/libplayerc++/clientproxy.h:
 
 ../src/Commons/ComplexLocation.h:
+
+../src/Particles/LocalizationManager.h:
+
+/home/colman/git/robotics/CornerStoneBProject/src/Commons/ComplexPosition.h:
+
+/home/colman/git/robotics/CornerStoneBProject/src/Commons/GridPosition.h:
+
+/home/colman/git/robotics/CornerStoneBProject/src/Commons/MapObject.h:
+
+../src/Particles/Particle.h:
+
+/home/colman/git/robotics/CornerStoneBProject/src/Globals.h:
+
+/home/colman/git/robotics/CornerStoneBProject/src/Commons/Logger.h:
+
+/home/colman/git/robotics/CornerStoneBProject/src/Commons/../Globals.h:
 
 ../src/Behaviours/Manager.h:
 

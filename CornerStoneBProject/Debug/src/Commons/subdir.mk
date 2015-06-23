@@ -5,22 +5,28 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../src/Commons/ComplexLocation.cpp \
+../src/Commons/ComplexPosition.cpp \
 ../src/Commons/GridPosition.cpp \
 ../src/Commons/Location.cpp \
+../src/Commons/Logger.cpp \
 ../src/Commons/MapObject.cpp \
 ../src/Commons/Utils.cpp 
 
 OBJS += \
 ./src/Commons/ComplexLocation.o \
+./src/Commons/ComplexPosition.o \
 ./src/Commons/GridPosition.o \
 ./src/Commons/Location.o \
+./src/Commons/Logger.o \
 ./src/Commons/MapObject.o \
 ./src/Commons/Utils.o 
 
 CPP_DEPS += \
 ./src/Commons/ComplexLocation.d \
+./src/Commons/ComplexPosition.d \
 ./src/Commons/GridPosition.d \
 ./src/Commons/Location.d \
+./src/Commons/Logger.d \
 ./src/Commons/MapObject.d \
 ./src/Commons/Utils.d 
 

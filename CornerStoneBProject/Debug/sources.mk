@@ -26,6 +26,7 @@ SUBDIRS := \
 src \
 src/WayPointsManager \
 src/PngUtils \
+src/Particles \
 src/Commons \
 src/Behaviours/Plans \
 src/Behaviours \

@@ -7,7 +7,7 @@
 
 #include "Robot.h"
 
-Robot::Robot(char* ip, int port, ComplexLocation initial_location) {
+Robot::Robot(char* ip, int port, ComplexLocation initial_location, MapObject grid_map) {
 	_pc = new PlayerClient(ip,port);
 	_pp = new Position2dProxy(_pc);
 	_lp = new LaserProxy(_pc);
@@ -21,6 +21,9 @@ Robot::Robot(char* ip, int port, ComplexLocation initial_location) {
 		Read();
 
 	_pp->SetOdometry(initial_location.getX(),initial_location.getY(), initial_location.getYaw());
+
+	loc_manager = new LocalizationManager(*_pp, _lp, grid_map);
+	_grid_map = &grid_map;
 }
 
 Robot::~Robot() {
@@ -116,10 +119,15 @@ Location Robot::getTargetLocation()
 
 Location Robot::getCurrentLocation()
 {
-	Location curr_loc((float)_pp->GetXPos(),(float)_pp->GetYPos());
-	return curr_loc;
+	//Location curr_loc((float)_pp->GetXPos(),(float)_pp->GetYPos());
+    ComplexPosition rob_pos = loc_manager->getEstimatedLocation();
+
+    //Logger::log(INFO, "current location is " + )
+
+	return _grid_map->locationFromPosition(rob_pos.getPosition());
 }
 float Robot::getYaw()
 {
-	return _pp->GetYaw();
+	//return _pp->GetYaw();
+	return loc_manager->getEstimatedLocation().getYaw();
 }

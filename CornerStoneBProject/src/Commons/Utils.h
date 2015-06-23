@@ -57,6 +57,17 @@ public:
 		float aproximateLocation = (position * _cell2Cm) + (((float)_cell2Cm) / 2);
 		return aproximateLocation;
 	}
+
+	static Location MapMeterLocationFromPixelLocation(Location position, float _cell2Cm, MapObject map){
+		float map_half_width_px = map.getWidth() / 2;
+		float map_half_height_px = map.getHeight() / 2;
+
+		float meters_from_center_x = (position.getX() - map_half_width_px) * _cell2Cm / 100;
+		float meters_from_center_y = -(position.getY() - map_half_height_px) * _cell2Cm / 100;
+
+		Location loc_from_center(meters_from_center_x,meters_from_center_y);
+		return loc_from_center;
+	}
 };
 
 #endif /* UTILS_H_ */

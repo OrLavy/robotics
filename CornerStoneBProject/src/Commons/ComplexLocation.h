@@ -40,6 +40,11 @@ public:
 		return loc;
 	}
 
+	void setLocation(Location loc){
+		setX(loc.getX());
+		setY(loc.getY());
+	}
+
 	//***********************
 	//		Accessors
 	//***********************

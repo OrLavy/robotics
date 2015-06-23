@@ -9,7 +9,8 @@
 #define ROBOT_H_
 #include <libplayerc++/playerc++.h>
 #include "Commons/ComplexLocation.h"
-
+#include "Particles/LocalizationManager.h"
+#include "Commons/MapObject.h"
 #define forward 333
 
 using namespace PlayerCc;
@@ -23,9 +24,11 @@ private:
 	bool right_flank_clear();
 	bool left_flank_clear();
 	Location target_location;
+	LocalizationManager* loc_manager;
+	MapObject* _grid_map;
 
 public:
-	Robot(char* ip, int port, ComplexLocation initial_loc);
+	Robot(char* ip, int port, ComplexLocation initial_location, MapObject grid_map);
 	void Read() {
 		_pc->Read();
 	}

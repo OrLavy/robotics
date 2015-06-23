@@ -19,34 +19,12 @@
 using namespace std;
 
 int main() {
-	/*
-	// Configurations initializing
-	ConfigurationsManager::setRobotSize(30);
-	//ConfigurationsManager::setRobotSize(2); // Maze tests
-	ConfigurationsManager::setPixel2Centimeter(2);
-	ConfigurationsManager::setGridCell2Centimeter(10);
-	ComplexLocation initialLocation(362,305,20); // Regular
-	ComplexLocation initialLocationSmallMaze(4,5,20); // small Maze test
-	ComplexLocation initialLocationCircularMaze(7,578,20); // circular Maze test
-	ComplexLocation usedLocation = initialLocation;
-	ConfigurationsManager::setRobotInitialLocation(usedLocation);
-	Location destination(169,138); // Regular
-	Location destinationSmallMaze(134,230); // small maze test
-	Location destinationCircularMaze(553,572); // Circular maze test
-	Location usedDestination = destination;
-	//Location destination(372,311);
-	ConfigurationsManager::setDestination(usedDestination); */
-
 	string confFilePath ="/home/colman/git/robotics/CornerStoneBProject/parameters.txt" ;//"/mnt/hgfs/SharedFolder/simulation/orConf.txt";
 	ConfigurationsManager::initializeFromFile(confFilePath);
 	ConfigurationsManager::printParameters();
 
-	string hospitalMap = "/usr/robotics/PcBotWorld/hospital_section.png";
-	string hospitalMapFixed = "/usr/robotics/PcBotWorld/hospital_section.png";//"/home/colman/Programming/Robotics/CornerStoneBProject/FixedHospital.png";
 	string labMap = "/home/colman/git/robotics/CornerStoneBProject/roboticLabMap.png";//"/mnt/hgfs/SharedFolder/simulation/roboticLabMap.png";
 
-	//string smallMazeMap = "/mnt/hgfs/SharedFolder/Maps/smallMap.png";
-	//string circularMazeMap = "/mnt/hgfs/SharedFolder/Maps/roundMaze.png";
 	string usedMap = labMap;
 	cout << "Or Lavy part begin" << endl;
 	Map mapa;
@@ -71,19 +49,25 @@ int main() {
 	cout << "Anton part begin" << endl;
 
     float cell2cm = ConfigurationsManager::getPixel2Centimeter();
-	initialComplexLocation.setX(Utils::locationFromActualPosition(initialComplexLocation.getX(), cell2cm));
-	initialComplexLocation.setY(Utils::locationFromActualPosition(initialComplexLocation.getY(), cell2cm));
+    //float map_half_width_px = mapa.getBlownMap().getWidth() / 2;
+    //float map_half_height_px = mapa.getBlownMap().getWidth() / 2;
 
-	float x = initialComplexLocation.getX();
-	float y = initialComplexLocation.getY();
+    initialComplexLocation.setLocation(
+    		Utils::MapMeterLocationFromPixelLocation(
+    				initialComplexLocation.getLocation(),
+    				cell2cm,
+    				mapa.getBlownMap()));
+
+	//float x = initialComplexLocation.getX();
+	//float y = initialComplexLocation.getY();
 	//initialComplexLocation.setX((x - 550) / 85.0f);
 	//initialComplexLocation.setY(-(y - 400) / 85.0f);
-
-	initialComplexLocation.setX(1.975f);
-	initialComplexLocation.setY(-2.6375f);
+    //9.05 - half_map_x
+    //7.625 - half_map_y
+	//initialComplexLocation.setX(1.975f);
+	//initialComplexLocation.setY(-2.6375f);
 	initialComplexLocation.setYaw(20.0f * 3.14159f / 180.0f);
-
-	Robot* robot = new Robot("localhost",6665, initialComplexLocation);
+	Robot* robot = new Robot("localhost",6665, initialComplexLocation, mapa.getNavMap());
     cout << "initial Robot location " << robot->getCurrentLocation().getX() << ", " << robot->getCurrentLocation().getY() << endl;
 	PlanDrive plnOA(robot, &wpManager);
 	Manager manager(robot, &plnOA);

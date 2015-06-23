@@ -57,9 +57,6 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.253745788.1315717299" name="CornerStoneBProject.cpp" rcbsApplicability="disable" resourcePath="src/CornerStoneBProject.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.cpp.compiler.917651378.707396179">
-						<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.917651378.707396179" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.917651378"/>
-					</fileInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
