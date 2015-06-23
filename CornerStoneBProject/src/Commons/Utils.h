@@ -53,6 +53,10 @@ public:
 			map.setCellAtPosition(pos, Path);
 		}
 	}
+	static float locationFromActualPosition(unsigned position, float _cell2Cm){
+		float aproximateLocation = (position * _cell2Cm) + (((float)_cell2Cm) / 2);
+		return aproximateLocation;
+	}
 };
 
 #endif /* UTILS_H_ */

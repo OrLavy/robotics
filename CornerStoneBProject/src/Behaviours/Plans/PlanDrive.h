@@ -9,13 +9,14 @@
 #define PLANDRIVE_H_
 
 #include "Plan.h"
+#include "../ActionRotate.h"
 #include "../ActionDrive.h"
 #include "../ActionObstacle.h"
 #include "../ActionSelectWaypoint.h"
 #include "WayPointsManager.h"
 
 class PlanDrive: public Plan {
-	Behaviour* _beh[3];
+	Behaviour* _beh[4];
 
 public:
 	PlanDrive(Robot* robot);

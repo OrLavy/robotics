@@ -25,6 +25,7 @@ void Manager::run()
 		{
 			_curr->action();
 			_robot->Read();
+			//cout << "robot location " << _robot->getCurrentLocation().getX() << ", " << _robot->getCurrentLocation().getY() << endl;
 		}
 		_curr = _curr->selectNext();
 		_robot->Read();

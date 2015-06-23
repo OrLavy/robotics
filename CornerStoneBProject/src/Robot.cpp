@@ -7,7 +7,7 @@
 
 #include "Robot.h"
 
-Robot::Robot(char* ip, int port) {
+Robot::Robot(char* ip, int port, ComplexLocation initial_location) {
 	_pc = new PlayerClient(ip,port);
 	_pp = new Position2dProxy(_pc);
 	_lp = new LaserProxy(_pc);
@@ -19,6 +19,8 @@ Robot::Robot(char* ip, int port) {
 	//For fixing Player's reading BUG
 	for(int i=0;i<15;i++)
 		Read();
+
+	_pp->SetOdometry(initial_location.getX(),initial_location.getY(), initial_location.getYaw());
 }
 
 Robot::~Robot() {
@@ -64,7 +66,7 @@ bool Robot::isBlocked(bool* is_blocked_from_right) {
 
 bool Robot::right_flank_clear()
 {
-	for(int i = forward + 50; i < 566; i+= 20)
+	for(int i = forward + 50; i < 566; i+= 5)
 	{
 		// If the obstacle is near the front, stay further away.
 		if ((*_lp)[i] < 0.85 - i * 0.001)
@@ -78,7 +80,7 @@ bool Robot::right_flank_clear()
 
 bool Robot::left_flank_clear()
 {
-	for(int i = 100; i < forward - 50; i+= 20)
+	for(int i = 100; i < forward - 50; i+= 5)
 	{
 		// If the obstacle is near the front, stay further away.
 	    if ((*_lp)[i] < 0.25 + i * 0.001)
@@ -92,13 +94,9 @@ bool Robot::left_flank_clear()
 
 bool Robot::isNearLocation(Location loc)
 {
-	float robot_x = _pp->GetXPos();
-	float robot_y = _pp->GetXPos();
-    Location curr_robot_pos(robot_x,robot_y);
+    float distance = getCurrentLocation().Distance(loc);
 
-    float distance = curr_robot_pos.Magnitude(loc);
-
-	if (distance < 0.5f) // TODO : check what does "near" mean in numbers...
+	if (distance < 0.3f) // TODO : check what does "near" mean in numbers...
 	{
 		return true;
 	}
@@ -118,7 +116,8 @@ Location Robot::getTargetLocation()
 
 Location Robot::getCurrentLocation()
 {
-	Location curr_loc(_pp->GetXPos(),_pp->GetYPos());
+	Location curr_loc((float)_pp->GetXPos(),(float)_pp->GetYPos());
+	return curr_loc;
 }
 float Robot::getYaw()
 {

@@ -8,7 +8,7 @@
 #ifndef ROBOT_H_
 #define ROBOT_H_
 #include <libplayerc++/playerc++.h>
-#include "Commons/Location.h"
+#include "Commons/ComplexLocation.h"
 
 #define forward 333
 
@@ -25,7 +25,7 @@ private:
 	Location target_location;
 
 public:
-	Robot(char* ip, int port);
+	Robot(char* ip, int port, ComplexLocation initial_loc);
 	void Read() {
 		_pc->Read();
 	}

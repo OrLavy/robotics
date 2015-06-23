@@ -21,6 +21,7 @@ bool Action_Drive::startCond()
     	return false;
     }
 
+    cout << "started Action_Drive" <<endl;
     return true;
 }
 bool Action_Drive::stopCond()
@@ -37,11 +38,6 @@ bool Action_Drive::stopCond()
 }
 void Action_Drive::action()
 {
-
-	// calculate direction
-    Location direction_unit_vector = (_robot->getTargetLocation() - _robot->getCurrentLocation()).Normalize();
-    float rad_angle = atan2(direction_unit_vector.getY(), direction_unit_vector.getX());// gives the radian angle from x.
-
     // set positive speed in target direction
-    _robot->setSpeed(1.0f,rad_angle - _robot->getYaw()); // TODO : Check! maybe we need to turn before we move anywhere!.
+    _robot->setSpeed(1.0f,0.0f); // simply drive straight.
 }

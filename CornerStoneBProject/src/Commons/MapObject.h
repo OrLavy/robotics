@@ -144,8 +144,10 @@ public:
 	/**
 	 * Retrun an aproximate location of the given grid position
 	 */
-	Location locationFromPosition(GridPosition postion){
-
+	Location locationFromPosition(GridPosition position){
+         Location loc(locationFromActualPosition(position.getX())
+        		 , locationFromActualPosition(position.getY()));
+         return loc;
 	}
 
 private :

@@ -63,15 +63,30 @@ int main() {
 	pathFinder.saveMapWithRoughPath("roughPath.png");
 
 	WayPointsManager wpManager(pathFinder.getChosenPath(),mapa.getBlownMap());
+	cout << "waypoint count: " << wpManager.getNumberOfWayPoints() << endl;
 	wpManager.savePointsOnMap("waypoints.png");
 
 	cout << "Or Lavy part  end" << endl;
 
 	cout << "Anton part begin" << endl;
-	Robot robot("localhost",6665);
 
-	PlanDrive plnOA(&robot, &wpManager);
-	Manager manager(&robot, &plnOA);
+    float cell2cm = ConfigurationsManager::getPixel2Centimeter();
+	initialComplexLocation.setX(Utils::locationFromActualPosition(initialComplexLocation.getX(), cell2cm));
+	initialComplexLocation.setY(Utils::locationFromActualPosition(initialComplexLocation.getY(), cell2cm));
+
+	float x = initialComplexLocation.getX();
+	float y = initialComplexLocation.getY();
+	//initialComplexLocation.setX((x - 550) / 85.0f);
+	//initialComplexLocation.setY(-(y - 400) / 85.0f);
+
+	initialComplexLocation.setX(1.975f);
+	initialComplexLocation.setY(-2.6375f);
+	initialComplexLocation.setYaw(20.0f * 3.14159f / 180.0f);
+
+	Robot* robot = new Robot("localhost",6665, initialComplexLocation);
+    cout << "initial Robot location " << robot->getCurrentLocation().getX() << ", " << robot->getCurrentLocation().getY() << endl;
+	PlanDrive plnOA(robot, &wpManager);
+	Manager manager(robot, &plnOA);
 	manager.run();
 	cout << "Anton part ends" << endl;
 

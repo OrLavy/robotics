@@ -58,6 +58,12 @@ public:
 	    return (sqrtf(v.getX() * v.getX() + v.getY() * v.getY()));
 	}
 
+	inline float Distance(const Location& v)
+	{
+		return (sqrtf((v.getX() - getX()) * (v.getX() - getX())
+				+ (v.getY() - getY()) * (v.getY() - getY())));
+	}
+
 	Location operator -(const Location& v) const
 	{
 	    return (Location(_x - v._x, _y - v._y));

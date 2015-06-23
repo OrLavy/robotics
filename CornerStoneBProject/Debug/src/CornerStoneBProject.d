@@ -28,12 +28,14 @@ src/CornerStoneBProject.d: ../src/CornerStoneBProject.cpp ../src/Map.h \
  /usr/local/include/player-2.0/libplayerc++/playerclient.h \
  /usr/local/include/player-2.0/libplayerc++/playererror.h \
  /usr/local/include/player-2.0/libplayerc++/clientproxy.h \
- ../src/Behaviours/Manager.h ../src/Behaviours/Plans/PlanDrive.h \
- ../src/Behaviours/Plans/Plan.h ../src/Behaviours/Plans/../Behaviour.h \
+ ../src/Commons/ComplexLocation.h ../src/Behaviours/Manager.h \
+ ../src/Behaviours/Plans/PlanDrive.h ../src/Behaviours/Plans/Plan.h \
+ ../src/Behaviours/Plans/../Behaviour.h \
  ../src/Behaviours/Plans/../../Robot.h \
  /home/colman/git/robotics/CornerStoneBProject/src/Robot.h \
- ../src/Behaviours/Plans/../ActionDrive.h \
+ ../src/Behaviours/Plans/../ActionRotate.h \
  ../src/Behaviours/Plans/../Behaviour.h \
+ ../src/Behaviours/Plans/../ActionDrive.h \
  ../src/Behaviours/Plans/../ActionObstacle.h \
  ../src/Behaviours/Plans/../ActionSelectWaypoint.h \
  /home/colman/git/robotics/CornerStoneBProject/src/WayPointsManager.h \
@@ -123,6 +125,8 @@ src/CornerStoneBProject.d: ../src/CornerStoneBProject.cpp ../src/Map.h \
 
 /usr/local/include/player-2.0/libplayerc++/clientproxy.h:
 
+../src/Commons/ComplexLocation.h:
+
 ../src/Behaviours/Manager.h:
 
 ../src/Behaviours/Plans/PlanDrive.h:
@@ -135,9 +139,11 @@ src/CornerStoneBProject.d: ../src/CornerStoneBProject.cpp ../src/Map.h \
 
 /home/colman/git/robotics/CornerStoneBProject/src/Robot.h:
 
-../src/Behaviours/Plans/../ActionDrive.h:
+../src/Behaviours/Plans/../ActionRotate.h:
 
 ../src/Behaviours/Plans/../Behaviour.h:
+
+../src/Behaviours/Plans/../ActionDrive.h:
 
 ../src/Behaviours/Plans/../ActionObstacle.h:
 

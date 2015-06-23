@@ -27,8 +27,16 @@ public:
 	//	Accessors
 	//*****************
 
-	const Location& getLocation() const {
+	const Location& getPixelLocation() const {
 		return _location;
+	}
+
+	const Location& getRealLocation()  {
+		float x = _location.getX();
+		float y = _location.getY();
+		Location real_loc((x - 550) / 82.0f, -(y - 400) / 82.0f);
+
+		return real_loc;
 	}
 
 	unsigned getNumber() const {
