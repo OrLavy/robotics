@@ -11,6 +11,12 @@
 #include "Behaviour.h"
 
 class Action_Rotate: public Behaviour {
+private:
+	Location direction_unit_vector;
+	double rad_angle;
+	bool direction_decided;
+	bool passed_correct_angle;
+	bool is_dir_right;
 public:
 	Action_Rotate(Robot* robot);
 	virtual ~Action_Rotate(){};

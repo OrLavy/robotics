@@ -69,6 +69,11 @@ public:
 	    return (Location(_x - v._x, _y - v._y));
 	}
 
+	Location operator /(float t) const
+	{
+		   return (Location(_x / t, _y / t));
+	}
+
 	Location& operator /=(float t)
 	{
 	    float f = 1.0F / t;

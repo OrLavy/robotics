@@ -14,6 +14,7 @@ Manager::Manager(Robot* robot, Plan* pln) {
 void Manager::run()
 {
 	_robot->Read();
+	_robot->Update();
 	/*
 	if(!(_curr->startCond()))
 		return;
@@ -25,10 +26,12 @@ void Manager::run()
 		{
 			_curr->action();
 			_robot->Read();
+			_robot->Update();
 			//cout << "robot location " << _robot->getCurrentLocation().getX() << ", " << _robot->getCurrentLocation().getY() << endl;
 		}
 		_curr = _curr->selectNext();
 		_robot->Read();
+		_robot->Update();
 	}
 }
 

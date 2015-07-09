@@ -5,15 +5,16 @@ src/CornerStoneBProject.d: ../src/CornerStoneBProject.cpp ../src/Map.h \
  ../src/PngUtils/../Commons/Location.h \
  ../src/PngUtils/../Commons/MapObject.h \
  ../src/PngUtils/../Commons/../Globals.h \
- ../src/PngUtils/../Commons/GridPosition.h ../src/Commons/MapObject.h \
+ ../src/PngUtils/../Commons/GridPosition.h \
+ ../src/PngUtils/../Commons/Convertions.h ../src/Commons/MapObject.h \
  ../src/Globals.h ../src/Commons/Utils.h ../src/Commons/MapObject.h \
- ../src/Commons/../PngUtils/PngUtil.h ../src/PathFinder.h \
- ../src/Commons/GridPosition.h ../src/AStar/AStarSearcher.h \
- ../src/AStar/../Commons/GridPosition.h ../src/AStar/MapGraphObject.h \
- ../src/AStar/../Commons/MapObject.h ../src/AStar/MatrixHolder.h \
- ../src/AStar/HelperTemplates.h ../src/AStar/MapGraphObject.h \
- ../src/AStar/MatrixHolder.h ../src/WayPointsManager.h \
- ../src/WayPointsManager/WayPoint.h \
+ ../src/Commons/../PngUtils/PngUtil.h ../src/Commons/GridPosition.h \
+ ../src/PathFinder.h ../src/Commons/GridPosition.h \
+ ../src/AStar/AStarSearcher.h ../src/AStar/../Commons/GridPosition.h \
+ ../src/AStar/MapGraphObject.h ../src/AStar/../Commons/MapObject.h \
+ ../src/AStar/MatrixHolder.h ../src/AStar/HelperTemplates.h \
+ ../src/AStar/MapGraphObject.h ../src/AStar/MatrixHolder.h \
+ ../src/WayPointsManager.h ../src/WayPointsManager/WayPoint.h \
  ../src/WayPointsManager/../Commons/Location.h ../src/Commons/Location.h \
  ../src/Robot.h /usr/local/include/player-2.0/libplayerc++/playerc++.h \
  /usr/local/include/player-2.0/libplayerc/playerc.h \
@@ -33,9 +34,12 @@ src/CornerStoneBProject.d: ../src/CornerStoneBProject.cpp ../src/Map.h \
  /home/colman/git/robotics/CornerStoneBProject/src/Commons/GridPosition.h \
  /home/colman/git/robotics/CornerStoneBProject/src/Commons/MapObject.h \
  ../src/Particles/Particle.h \
+ /home/colman/git/robotics/CornerStoneBProject/src/Commons/ComplexLocation.h \
+ /home/colman/git/robotics/CornerStoneBProject/src/ConfigurationsManager.h \
  /home/colman/git/robotics/CornerStoneBProject/src/Globals.h \
  /home/colman/git/robotics/CornerStoneBProject/src/Commons/Logger.h \
  /home/colman/git/robotics/CornerStoneBProject/src/Commons/../Globals.h \
+ /home/colman/git/robotics/CornerStoneBProject/src/Commons/Utils.h \
  ../src/Behaviours/Manager.h ../src/Behaviours/Plans/PlanDrive.h \
  ../src/Behaviours/Plans/Plan.h ../src/Behaviours/Plans/../Behaviour.h \
  ../src/Behaviours/Plans/../../Robot.h \
@@ -66,6 +70,8 @@ src/CornerStoneBProject.d: ../src/CornerStoneBProject.cpp ../src/Map.h \
 
 ../src/PngUtils/../Commons/GridPosition.h:
 
+../src/PngUtils/../Commons/Convertions.h:
+
 ../src/Commons/MapObject.h:
 
 ../src/Globals.h:
@@ -75,6 +81,8 @@ src/CornerStoneBProject.d: ../src/CornerStoneBProject.cpp ../src/Map.h \
 ../src/Commons/MapObject.h:
 
 ../src/Commons/../PngUtils/PngUtil.h:
+
+../src/Commons/GridPosition.h:
 
 ../src/PathFinder.h:
 
@@ -144,11 +152,17 @@ src/CornerStoneBProject.d: ../src/CornerStoneBProject.cpp ../src/Map.h \
 
 ../src/Particles/Particle.h:
 
+/home/colman/git/robotics/CornerStoneBProject/src/Commons/ComplexLocation.h:
+
+/home/colman/git/robotics/CornerStoneBProject/src/ConfigurationsManager.h:
+
 /home/colman/git/robotics/CornerStoneBProject/src/Globals.h:
 
 /home/colman/git/robotics/CornerStoneBProject/src/Commons/Logger.h:
 
 /home/colman/git/robotics/CornerStoneBProject/src/Commons/../Globals.h:
+
+/home/colman/git/robotics/CornerStoneBProject/src/Commons/Utils.h:
 
 ../src/Behaviours/Manager.h:
 

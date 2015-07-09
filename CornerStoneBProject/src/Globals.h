@@ -79,9 +79,9 @@ static const unsigned int MaxParticleAmount = 200;
 static const float MaxBelief = 1.0;
 
 static const float TOTAL_BELIEF = MaxBelief;
-static const float HIGH_BELIEF = MaxBelief * 0.75;
-static const float NORMAL_BELIEF = MaxBelief * 0.50;
-static const float LOW_BELIEF = MaxBelief * 0.25;
+static const float HIGH_BELIEF = MaxBelief * 0.8;
+static const float NORMAL_BELIEF = MaxBelief * 0.7;
+static const float LOW_BELIEF = MaxBelief * 0.5;
 static const float NO_BELIEF = MaxBelief * 0;
 
 static const float BELIEF_FACTOR = 1.06;

@@ -26,7 +26,7 @@ private :
 	static ComplexLocation _robotInitialLocation;
 	static Location _destination;
 	static unsigned _robotSize; // in Cm
-	static unsigned _pixel2Centimeter;
+	static float _pixel2Centimeter;
 	static unsigned _gridCell2Centimeter;
 public:
 	//******************
@@ -43,6 +43,14 @@ public:
 
 	static void setMapPath(string& mapPath) {
 		_mapPath = mapPath;
+	}
+
+	static float getMapWidthCm() {
+        return 550 * getPixel2Centimeter();
+	}
+
+	static float getMapHeightCm() {
+		 return 380 * getPixel2Centimeter();
 	}
 
 	static const ComplexLocation getRobotInitialLocation(){
@@ -69,11 +77,11 @@ public:
 		_robotSize = robotSize;
 	}
 
-	static unsigned getPixel2Centimeter(){
+	static float getPixel2Centimeter(){
 		return _pixel2Centimeter;
 	}
 
-	static void setPixel2Centimeter(unsigned pixel2Centimeter) {
+	static void setPixel2Centimeter(float pixel2Centimeter) {
 		_pixel2Centimeter = pixel2Centimeter;
 	}
 
@@ -100,6 +108,8 @@ public:
 		cout << " *** Localization res : " << getGridCell2Centimeter() << endl;
 		cout << "----------------------------------" << endl;
 	}
+
+
 
 private:
 	//*****************

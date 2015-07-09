@@ -13,7 +13,7 @@ string ConfigurationsManager::_mapPath ="";
 ComplexLocation ConfigurationsManager::_robotInitialLocation;
 Location ConfigurationsManager::_destination;
 unsigned ConfigurationsManager::_gridCell2Centimeter = 0;
-unsigned ConfigurationsManager::_pixel2Centimeter = 0;
+float ConfigurationsManager::_pixel2Centimeter = 0;
 unsigned ConfigurationsManager::_robotSize = 0;
 
 

@@ -4,19 +4,20 @@
  *  Created on: Jun 23, 2015
  *      Author: colman
  */
-#include "Commons/ComplexPosition.h"
+#include "Commons/ComplexLocation.h"
 #ifndef PARTICLE_H_
 #define PARTICLE_H_
 #include <math.h>
 #include <Commons/MapObject.h>
 #include <libplayerc++/playerc++.h>
 #include <vector>
+#include <ConfigurationsManager.h>
 
 using namespace PlayerCc;
 
 class Particle {
 private:
-	ComplexPosition pixel_pos;
+	ComplexLocation cm_location;
 	float belief;
 
 	double laserIndexToRad(int index);
@@ -25,7 +26,7 @@ public:
 
 	Particle(float x, float y, float yaw, float bel);
 	virtual ~Particle();
-	ComplexPosition getPos();
+	ComplexLocation getLocation();
 	void update(double xMoved, double yMoved, double yawMoved,LaserProxy* lp,MapObject& grid_map);
 	float getBelief();
 	vector<Particle> generateChildren();

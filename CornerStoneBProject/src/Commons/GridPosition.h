@@ -93,7 +93,6 @@ public:
 	}
 };
 
-
 struct my_hash {
 std::size_t operator()( const GridPosition & c ) const
         {

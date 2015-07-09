@@ -1,8 +1,8 @@
 src/PathFinder.d: ../src/PathFinder.cpp ../src/PathFinder.h \
  ../src/Commons/MapObject.h ../src/Commons/../Globals.h \
  ../src/Commons/GridPosition.h ../src/Commons/Location.h \
- ../src/Commons/Utils.h ../src/Commons/MapObject.h \
- ../src/Commons/../PngUtils/PngUtil.h \
+ ../src/Commons/Convertions.h ../src/Commons/Utils.h \
+ ../src/Commons/MapObject.h ../src/Commons/../PngUtils/PngUtil.h \
  ../src/Commons/../PngUtils/../Globals.h \
  ../src/Commons/../PngUtils/../ConfigurationsManager.h \
  ../src/Commons/../PngUtils/../Commons/ComplexLocation.h \
@@ -23,6 +23,8 @@ src/PathFinder.d: ../src/PathFinder.cpp ../src/PathFinder.h \
 ../src/Commons/GridPosition.h:
 
 ../src/Commons/Location.h:
+
+../src/Commons/Convertions.h:
 
 ../src/Commons/Utils.h:
 

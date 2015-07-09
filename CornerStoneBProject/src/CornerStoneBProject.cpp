@@ -48,15 +48,16 @@ int main() {
 
 	cout << "Anton part begin" << endl;
 
-    float cell2cm = ConfigurationsManager::getPixel2Centimeter();
+    //float cell2cm = ConfigurationsManager::getPixel2Centimeter();
     //float map_half_width_px = mapa.getBlownMap().getWidth() / 2;
     //float map_half_height_px = mapa.getBlownMap().getWidth() / 2;
 
     initialComplexLocation.setLocation(
     		Utils::MapMeterLocationFromPixelLocation(
     				initialComplexLocation.getLocation(),
-    				cell2cm,
-    				mapa.getBlownMap()));
+    				ConfigurationsManager::getPixel2Centimeter(),
+    				(float)mapa.getBlownMap().getWidth(),
+    				(float)mapa.getBlownMap().getHeight()));
 
 	//float x = initialComplexLocation.getX();
 	//float y = initialComplexLocation.getY();
@@ -66,9 +67,9 @@ int main() {
     //7.625 - half_map_y
 	//initialComplexLocation.setX(1.975f);
 	//initialComplexLocation.setY(-2.6375f);
-	initialComplexLocation.setYaw(20.0f * 3.14159f / 180.0f);
+	initialComplexLocation.setYaw(20.0f * M_PI / 180.0f);
 	Robot* robot = new Robot("localhost",6665, initialComplexLocation, mapa.getNavMap());
-    cout << "initial Robot location " << robot->getCurrentLocation().getX() << ", " << robot->getCurrentLocation().getY() << endl;
+    cout << "initial Robot location " << initialComplexLocation.getX() << ", " << initialComplexLocation.getY() << endl;
 	PlanDrive plnOA(robot, &wpManager);
 	Manager manager(robot, &plnOA);
 	manager.run();

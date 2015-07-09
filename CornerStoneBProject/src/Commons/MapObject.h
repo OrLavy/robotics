@@ -17,7 +17,7 @@ using namespace std;
 #include "../Globals.h"
 #include "GridPosition.h"
 #include "Location.h"
-
+#include "Convertions.h"
 /**
  * Used to represent a single map as a matrix of GridCells.
  * Also adds utilities to convert actual locations to cells in the matrix
@@ -121,7 +121,7 @@ public:
 	 * Returns the cell that contains the given actual location
 	 */
 	GridCell getCellAtRealLocation(float x,  float y){
-		GridPosition position = positionFromLocation(x,y);
+		GridPosition position = Conversions::GridPositionFromMapMeterLocation(Location(x,y), _cell2Cm, this->getWidth(), this->getHeight());
 		return getCellAtPosition(position.getX(),position.getY());
 	}
 

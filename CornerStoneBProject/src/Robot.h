@@ -30,7 +30,10 @@ private:
 public:
 	Robot(char* ip, int port, ComplexLocation initial_location, MapObject grid_map);
 	void Read() {
-		_pc->Read();
+		for(int i=0;i<10;i++)
+		{
+		   _pc->Read();
+		}
 	}
 	void setSpeed(float xSpeed, float angularSpeed) {
 		_pp->SetSpeed(xSpeed, angularSpeed);
@@ -41,6 +44,7 @@ public:
 	bool isNearLocation(Location loc);
 	Location getCurrentLocation();
 	float getYaw();
+	void Update();
 	virtual ~Robot();
 };
 
